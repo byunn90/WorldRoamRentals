@@ -1,7 +1,12 @@
 import "./App.css";
-
+import "./tailwind.css";
+import Home from "./components/Home";
 function App() {
-  return <div>Test!</div>;
+  return (
+    <div className="app">
+      <Home />
+    </div>
+  );
 }
 
 export default App;
