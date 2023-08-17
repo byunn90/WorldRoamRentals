@@ -10,7 +10,11 @@ import {
 function NavBar() {
   // Define the states you need
   const [hovered, setHovered] = useState(false);
+  // Home icon Hover
   const [showHomePopup, setShowHomePopup] = useState(false);
+  const [showCarPopUp, setCarPopup] = useState(false);
+  // For the Vechicles icon
+  const [showHoveredVechicles, setHoveredVechicles] = useState(false);
   console.log("showHomePopup:", showHomePopup);
   return (
     <nav className="navBar flex justify-between p-4">
@@ -30,7 +34,7 @@ function NavBar() {
               }`}
             />
             <span
-              className={`transition-opacity duration-1000 ${
+              className={`text-sm transition-opacity duration-1000 w-15 text-center ${
                 hovered ? "opacity-0" : "opacity-100"
               }`}
             >
@@ -40,13 +44,26 @@ function NavBar() {
           </button>
         </li>
         <li>
-          <a
-            href="https://www.w3schools.com"
-            className="text-black md:hover:bg-transparent hover:text-blue-600 font-mono"
+          <button
+            onClick={() => setCarPopup(!showCarPopUp)}
+            className="relative flex items-center justify-center text-white border-b-2 bg-gradient-to-r from-indigo-400 transition ease-in-out delay-350 hover:via-purple-600 to-pink-500 px-2 py-1 rounded font-mono focus:outline-none"
+            onMouseEnter={() => setHoveredVechicles(true)}
+            onMouseLeave={() => setHoveredVechicles(false)}
           >
-            <FontAwesomeIcon icon={faCar} />
-            About
-          </a>
+            <FontAwesomeIcon
+              icon={faCar}
+              className={`absolute transition-opacity duration-1000 ${
+                showHoveredVechicles ? "opacity-100" : "opacity-0"
+              }`}
+            />
+            <span
+              className={`text-sm transition-opacity duration-1000 w-15 text-center ${
+                showHoveredVechicles ? "opacity-0" : "opacity-100"
+              }`}
+            >
+              Vehicles
+            </span>
+          </button>
         </li>
         <li>
           <a
@@ -62,7 +79,7 @@ function NavBar() {
             href="https://www.w3schools.com"
             className="block text-black md:hover:bg-transparent hover:text-blue-600"
           >
-            <FontAwesomeIcon icon={faEnvelope} />
+            <FontAwesomeIcon icon={faEnvelope} className="" />
             Contact
           </a>
         </li>
