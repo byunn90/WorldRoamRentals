@@ -17,10 +17,16 @@ function NavBar() {
   const [showHoveredVechicles, setHoveredVechicles] = useState(false);
   // For the Vechicle usestate Icon
   const [showAboutPopup, setAboutPopup] = useState(false);
-  const [showHoveredAbout, setHoveredAboutPopup] = useState(false);
+  const [showHoveredAbout, setShowHoveredAbout] = useState(false);
   // For the About useState Icon
   const [showContactPopup, setContactPopup] = useState(false);
   const [ShowHoveredContact, setHoveredContactPopup] = useState(false);
+  // Contacts
+
+  // slider function for background color change
+  const [backGroundChanger, setBackGround] = useState(false);
+  const myslider = () => {};
+
   return (
     <nav
       className="navBar flex justify-between p-4"
@@ -53,7 +59,7 @@ function NavBar() {
         </li>
         <li>
           <button
-            onClick={() => setAboutPopup(!showAboutPopup)}
+            onClick={() => showCarPopUp(!setCarPopup)}
             className="relative flex items-center justify-center text-white border-b-2 bg-gradient-to-r from-indigo-400 transition ease-in-out delay-350 hover:via-purple-600 to-pink-500 px-2 py-1 rounded font-mono focus:outline-none"
             onMouseEnter={() => setHoveredVechicles(true)}
             onMouseLeave={() => setHoveredVechicles(false)}
@@ -76,44 +82,46 @@ function NavBar() {
         </li>
         <li>
           <button
-            onClick={() => showContactPopup(!setContactPopup)}
-            className=" text-sm relative flex items-center justify-center text-white border-b-2 bg-gradient-to-r from-indigo-400 transition ease-in-out delay-350 hover:via-purple-600 to-pink-500 px-2 py-1 rounded font-mono focus:outline-none"
-            onMouseEnter={() => setHoveredAboutPopup(false)}
-            onMouseLeave={() => setHoveredAboutPopup(true)}
+            onClick={() => setShowHoveredAbout(!showAboutPopup)} // This line seems odd, are you sure about this logic?
+            className="text-sm relative flex items-center justify-center text-white border-b-2 bg-gradient-to-r from-indigo-400 transition ease-in-out delay-350 hover:via-purple-600 to-pink-500 px-2 py-1 rounded font-mono focus:outline-none"
+            onMouseEnter={() => setShowHoveredAbout(true)}
+            onMouseLeave={() => setShowHoveredAbout(false)}
           >
             <FontAwesomeIcon
               icon={faInfoCircle}
               className={`absolute transition-opacity duration-1000 ${
-                showHoveredAbout ? "opacity-0" : "opacity-100"
+                showHoveredAbout ? "opacity-100" : "opacity-0"
               }`}
             ></FontAwesomeIcon>
-            About
             <span
               className={`text-sm transition-opacity duration-1000 w-15 text-center ${
                 showHoveredAbout ? "opacity-0" : "opacity-100"
               }`}
-            ></span>
+            >
+              About
+            </span>
           </button>
         </li>
         <li>
           <button
-            onClick={() => showContactPopup(!setContactPopup)}
+            onClick={() => setContactPopup(!showContactPopup)}
             className="text-sm relative flex items-center justify-center text-white border-b-2 bg-gradient-to-r from-indigo-400 transition ease-in-out delay-350 hover:via-purple-600 to-pink-500 px-2 py-1 rounded font-mono focus:outline-none"
-            onMouseLeave={() => setHoveredContactPopup(true)}
-            onMouseEnter={() => setHoveredContactPopup(false)}
+            onMouseEnter={() => setHoveredContactPopup(true)}
+            onMouseLeave={() => setHoveredContactPopup(false)}
           >
             <FontAwesomeIcon
               icon={faEnvelope}
               className={`absolute transition-opacity duration-1000 ${
-                ShowHoveredContact ? "opacity-0" : "opacity-100"
+                ShowHoveredContact ? "opacity-100" : "opacity-0"
               }`}
             ></FontAwesomeIcon>
             <span
               className={`text-sm transition-opacity duration-1000 w-15 text-center ${
                 ShowHoveredContact ? "opacity-0" : "opacity-100"
               }`}
-            ></span>
-            Contact
+            >
+              Contact
+            </span>
           </button>
         </li>
       </ul>
