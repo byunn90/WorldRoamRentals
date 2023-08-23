@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faGithub } from "@fortawesome/free-brands-svg-icons";
+import "./Switch.css";
 import {
   faHome,
   faCar,
   faInfoCircle,
   faEnvelope,
+  faMoon,
+  faSun,
 } from "@fortawesome/free-solid-svg-icons";
 
 function NavBar() {
@@ -25,12 +28,14 @@ function NavBar() {
 
   // slider function for background color change
   const [backGroundChanger, setBackGround] = useState(false);
-  const myslider = () => {};
-
+  const myslider = () => {
+    setBackGround(!backGroundChanger);
+  };
   return (
     <nav
-      className="navBar flex justify-between p-4"
-      style={{ backgroundColor: "" }}
+      className={`navBar flex justify-between p-4 ${
+        backGroundChanger ? "bg-light" : "bg-dark"
+      }`}
     >
       <div className="pr-10 logo text-1xl font-bold">Logo</div>
       <ul className="flex space-x-4 gap-2">
@@ -124,6 +129,16 @@ function NavBar() {
             </span>
           </button>
         </li>
+        <button
+          className={`${backGroundChanger ? "bg-light" : "bg-dark"}`}
+          onClick={myslider}
+        >
+          {backGroundChanger ? (
+            <FontAwesomeIcon icon={faSun}></FontAwesomeIcon>
+          ) : (
+            <FontAwesomeIcon className="bg-red" icon={faMoon}></FontAwesomeIcon>
+          )}
+        </button>
       </ul>
     </nav>
   );
