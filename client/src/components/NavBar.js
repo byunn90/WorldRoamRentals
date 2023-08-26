@@ -37,23 +37,24 @@ function NavBar() {
         backGroundChanger ? "bg-light" : "bg-dark"
       }`}
     >
-      <div className="pr-10 logo text-1xl font-bold">Logo</div>
-      <ul className="flex space-x-4 gap-2">
+      <div className="font-sans pr-8 logo">RoamWithMeUI</div>
+      <ul className="flex space-x-2 gap-1">
         <li>
           <button
             onClick={() => setShowHomePopup(!showHomePopup)}
-            className="relative flex items-center justify-center text-white border-b-2 bg-gradient-to-r from-indigo-400 transition ease-in-out delay-350 hover:via-purple-600 to-pink-500 px-2 py-1 rounded font-mono focus:outline-none"
+            className={`base-btn-style relative flex items-center justify-center text-white bg-gradient-to-r from-indigo-400 transition ease-in-out delay-350 hover:via-purple-600 to-pink-500 font-sans focus:outline-none`}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
           >
             <FontAwesomeIcon
               icon={faHome}
+              size="xs"
               className={`absolute transition-opacity duration-1000 ${
                 hovered ? "opacity-100" : "opacity-0"
               }`}
             />
             <span
-              className={`text-sm transition-opacity duration-1000 w-15 text-center ${
+              className={`text-xxs transition-opacity duration-1000 w-15 text-center ${
                 hovered ? "opacity-0" : "opacity-100"
               }`}
             >
@@ -64,42 +65,43 @@ function NavBar() {
         </li>
         <li>
           <button
-            onClick={() => showCarPopUp(!setCarPopup)}
-            className="relative flex items-center justify-center text-white border-b-2 bg-gradient-to-r from-indigo-400 transition ease-in-out delay-350 hover:via-purple-600 to-pink-500 px-2 py-1 rounded font-mono focus:outline-none"
+            onClick={() => setCarPopup(!showCarPopUp)}
+            className={`base-btn-style relative flex items-center justify-center text-white bg-gradient-to-r from-indigo-400 transition ease-in-out delay-350 hover:via-purple-600 to-pink-500 font-mono focus:outline-none`}
             onMouseEnter={() => setHoveredVechicles(true)}
             onMouseLeave={() => setHoveredVechicles(false)}
           >
             <FontAwesomeIcon
               icon={faCar}
+              size="xs"
               className={`absolute transition-opacity duration-1000 ${
                 showHoveredVechicles ? "opacity-100" : "opacity-0"
               }`}
             />
             <span
-              className={`text-sm transition-opacity duration-1000 w-15 text-center ${
+              className={` text-xxs transition-opacity duration-1000 w-15 text-center ${
                 showHoveredVechicles ? "opacity-0" : "opacity-100"
               }`}
             >
               Vehicles
             </span>
-            {/* {New button has to be done here} */}
           </button>
         </li>
         <li>
           <button
             onClick={() => setShowHoveredAbout(!showAboutPopup)} // This line seems odd, are you sure about this logic?
-            className="text-sm relative flex items-center justify-center text-white border-b-2 bg-gradient-to-r from-indigo-400 transition ease-in-out delay-350 hover:via-purple-600 to-pink-500 px-2 py-1 rounded font-mono focus:outline-none"
+            className={`base-btn-style relative flex items-center justify-center text-white bg-gradient-to-r from-indigo-400 transition ease-in-out delay-350 hover:via-purple-600 to-pink-500 font-mono focus:outline-none`}
             onMouseEnter={() => setShowHoveredAbout(true)}
             onMouseLeave={() => setShowHoveredAbout(false)}
           >
             <FontAwesomeIcon
               icon={faInfoCircle}
+              size="xs"
               className={`absolute transition-opacity duration-1000 ${
                 showHoveredAbout ? "opacity-100" : "opacity-0"
               }`}
             ></FontAwesomeIcon>
             <span
-              className={`text-sm transition-opacity duration-1000 w-15 text-center ${
+              className={` text-xxs transition-opacity duration-1000 w-15 text-center ${
                 showHoveredAbout ? "opacity-0" : "opacity-100"
               }`}
             >
@@ -110,18 +112,19 @@ function NavBar() {
         <li>
           <button
             onClick={() => setContactPopup(!showContactPopup)}
-            className="text-sm relative flex items-center justify-center text-white border-b-2 bg-gradient-to-r from-indigo-400 transition ease-in-out delay-350 hover:via-purple-600 to-pink-500 px-2 py-1 rounded font-mono focus:outline-none"
+            className={`base-btn-style relative flex items-center justify-center text-white bg-gradient-to-r from-indigo-400 transition ease-in-out delay-350 hover:via-purple-600 to-pink-500 font-mono focus:outline-none`}
             onMouseEnter={() => setHoveredContactPopup(true)}
             onMouseLeave={() => setHoveredContactPopup(false)}
           >
             <FontAwesomeIcon
               icon={faEnvelope}
+              size="xs"
               className={`absolute transition-opacity duration-1000 ${
                 ShowHoveredContact ? "opacity-100" : "opacity-0"
               }`}
             ></FontAwesomeIcon>
             <span
-              className={`text-sm transition-opacity duration-1000 w-15 text-center ${
+              className={` text-xxs transition-opacity duration-1000 w-15 text-center ${
                 ShowHoveredContact ? "opacity-0" : "opacity-100"
               }`}
             >
@@ -134,9 +137,13 @@ function NavBar() {
           onClick={myslider}
         >
           {backGroundChanger ? (
-            <FontAwesomeIcon icon={faSun}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faSun} size="lg"></FontAwesomeIcon>
           ) : (
-            <FontAwesomeIcon className="bg-red" icon={faMoon}></FontAwesomeIcon>
+            <FontAwesomeIcon
+              className="bg-red p-1"
+              size="xs"
+              icon={faMoon}
+            ></FontAwesomeIcon>
           )}
         </button>
       </ul>
