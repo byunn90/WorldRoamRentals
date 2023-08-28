@@ -6,7 +6,7 @@ function Home() {
 
   const myslider = () => {
     setBackGround(!backGroundChanger);
-    console.log("hii");
+    console.log("hissi");
   };
 
   return (
